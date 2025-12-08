@@ -10,6 +10,7 @@ import ServiceAreas from './components/ServiceAreas';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CallPopup from './components/CallPopup';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Contact />
         <Footer />
       </div>
+
+      <CallPopup />
     </div>
   );
 }
