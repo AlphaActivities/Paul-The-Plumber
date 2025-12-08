@@ -1,8 +1,9 @@
 import { useState, FormEvent } from 'react';
-import { Phone, CheckCircle } from 'lucide-react';
+import { Phone, CheckCircle, Loader2 } from 'lucide-react';
 import LazyLoad from './LazyLoad';
 
 export default function Contact() {
+  const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,19 +17,24 @@ export default function Contact() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    setSubmitted(true);
+    setSending(true);
     setHasSubmitted(true);
 
     setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        serviceType: '',
-        message: '',
-      });
-    }, 6000);
+      setSending(false);
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          serviceType: '',
+          message: '',
+        });
+      }, 3000);
+    }, 2500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -190,17 +196,23 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className={`w-full px-4 py-2 text-white rounded-full font-semibold text-sm transition-all shadow-lg ${
-                      submitted
-                        ? 'bg-green-600 hover:bg-green-600'
-                        : 'bg-[#E42313] hover:bg-red-700 hover:scale-105'
+                    disabled={sending || submitted}
+                    className={`w-full px-4 py-2 text-white rounded-full font-semibold text-sm transition-all shadow-lg flex items-center justify-center gap-2 ${
+                      sending
+                        ? 'bg-gray-500 hover:bg-gray-500 cursor-wait'
+                        : submitted
+                          ? 'bg-green-600 hover:bg-green-600'
+                          : 'bg-[#E42313] hover:bg-red-700 hover:scale-105'
                     }`}
                   >
-                    {submitted
-                      ? 'Message Sent Successfully!'
-                      : hasSubmitted
-                        ? 'Send Another Message'
-                        : 'Send Message'
+                    {sending && <Loader2 className="w-4 h-4 animate-spin" />}
+                    {sending
+                      ? 'Sending...'
+                      : submitted
+                        ? 'Message Sent Successfully!'
+                        : hasSubmitted
+                          ? 'Send Another Message'
+                          : 'Send Message'
                     }
                   </button>
                 </form>
