@@ -19,33 +19,40 @@ export default function Contact() {
     setSending(true);
     setHasSubmitted(true);
 
+    const isProduction = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
+
     try {
-      const form = e.target as HTMLFormElement;
-      const formDataToSend = new FormData(form);
+      if (isProduction) {
+        const form = e.target as HTMLFormElement;
+        const formDataToSend = new FormData(form);
 
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSend as any).toString(),
-      });
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formDataToSend as any).toString(),
+        });
 
-      if (response.ok) {
-        setSending(false);
-        setSubmitted(true);
-
-        setTimeout(() => {
-          setSubmitted(false);
-          setFormData({
-            name: '',
-            phone: '',
-            email: '',
-            serviceType: '',
-            message: '',
-          });
-        }, 3000);
+        if (!response.ok) {
+          throw new Error('Form submission failed');
+        }
       } else {
-        throw new Error('Form submission failed');
+        console.log('Development mode - Form data:', formData);
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
+
+      setSending(false);
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          serviceType: '',
+          message: '',
+        });
+      }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setSending(false);
