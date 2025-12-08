@@ -14,32 +14,13 @@ export default function Contact() {
     message: '',
   });
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    console.log('Form submitted:', formData);
     setSending(true);
     setHasSubmitted(true);
 
-    const isProduction = window.location.hostname !== 'localhost' && !window.location.hostname.includes('127.0.0.1');
-
-    try {
-      if (isProduction) {
-        const form = e.target as HTMLFormElement;
-        const formDataToSend = new FormData(form);
-
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formDataToSend as any).toString(),
-        });
-
-        if (!response.ok) {
-          throw new Error('Form submission failed');
-        }
-      } else {
-        console.log('Development mode - Form data:', formData);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-
+    setTimeout(() => {
       setSending(false);
       setSubmitted(true);
 
@@ -53,11 +34,7 @@ export default function Contact() {
           message: '',
         });
       }, 3000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSending(false);
-      alert('There was an error sending your message. Please call us directly at 402-596-0200.');
-    }
+    }, 2500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -135,20 +112,7 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Send Us a Message
               </h3>
-              <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
-                  <input type="hidden" name="form-name" value="contact" />
-                  <div className="hidden">
-                    <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                       Name *
