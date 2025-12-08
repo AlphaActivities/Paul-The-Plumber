@@ -4,6 +4,7 @@ import LazyLoad from './LazyLoad';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -16,6 +17,8 @@ export default function Contact() {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setSubmitted(true);
+    setHasSubmitted(true);
+
     setTimeout(() => {
       setSubmitted(false);
       setFormData({
@@ -25,7 +28,7 @@ export default function Contact() {
         serviceType: '',
         message: '',
       });
-    }, 3000);
+    }, 6000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -100,24 +103,10 @@ export default function Contact() {
 
           <LazyLoad animation="fadeSlideUp" delay={200}>
             <div className="bg-gradient-to-br from-[#0056A4] to-blue-700 rounded-2xl shadow-2xl p-8 border-2 border-blue-400/30">
-            {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <CheckCircle className="w-12 h-12 text-green-600" />
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-4">
-                  Thanks for reaching out!
-                </h3>
-                <p className="text-lg text-white/90">
-                  We'll be in touch with you shortly.
-                </p>
-              </div>
-            ) : (
-              <>
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Send Us a Message
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Send Us a Message
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                       Name *
@@ -201,13 +190,20 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full px-4 py-2 bg-[#E42313] text-white rounded-full font-semibold text-sm hover:bg-red-700 transition-all hover:scale-105 shadow-lg"
+                    className={`w-full px-4 py-2 text-white rounded-full font-semibold text-sm transition-all shadow-lg ${
+                      submitted
+                        ? 'bg-green-600 hover:bg-green-600'
+                        : 'bg-[#E42313] hover:bg-red-700 hover:scale-105'
+                    }`}
                   >
-                    Request Service
+                    {submitted
+                      ? 'Message Sent Successfully!'
+                      : hasSubmitted
+                        ? 'Send Another Message'
+                        : 'Send Message'
+                    }
                   </button>
                 </form>
-              </>
-            )}
             </div>
           </LazyLoad>
         </div>
