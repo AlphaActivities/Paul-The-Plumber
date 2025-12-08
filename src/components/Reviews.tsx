@@ -136,7 +136,7 @@ export default function Reviews() {
         <LazyLoad animation="fadeSlideUp">
           <div className="md:hidden relative px-4">
           <div className="relative rounded-3xl shadow-2xl">
-            <div className="relative min-h-[720px] overflow-hidden rounded-3xl">
+            <div className="relative min-h-[700px] overflow-hidden rounded-3xl">
               {reviews.map((review, index) => (
                 <div
                   key={index}
