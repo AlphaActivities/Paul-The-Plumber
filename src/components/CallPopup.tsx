@@ -62,13 +62,13 @@ export default function CallPopup() {
             {/* Phone number display */}
             <div className="bg-white rounded-xl p-6 shadow-xl">
               <p className="text-gray-600 text-sm font-semibold uppercase tracking-wider mb-2">
-                Call us Directly
+                Call or Text
               </p>
               <a
                 href="tel:4025960200"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 sm:gap-3 whitespace-nowrap"
+                className="text-4xl md:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-3"
               >
-                <Phone className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0" />
+                <Phone className="w-8 h-8 md:w-10 md:h-10" />
                 402-596-0200
               </a>
             </div>
