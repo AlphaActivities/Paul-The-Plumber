@@ -5,6 +5,7 @@ import LazyLoad from './LazyLoad';
 export default function Reviews() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
   const reviews = [
     {
@@ -31,6 +32,7 @@ export default function Reviews() {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
+      setDirection('next');
       setCurrentSlide((prev) => (prev + 1) % reviews.length);
     }, 6000);
 
@@ -38,18 +40,21 @@ export default function Reviews() {
   }, [isAutoPlaying, reviews.length]);
 
   const nextSlide = () => {
+    setDirection('next');
     setCurrentSlide((prev) => (prev + 1) % reviews.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const prevSlide = () => {
+    setDirection('prev');
     setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToSlide = (index: number) => {
+    setDirection(index > currentSlide ? 'next' : 'prev');
     setCurrentSlide(index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
@@ -143,7 +148,7 @@ export default function Reviews() {
                   className={`absolute inset-0 transition-all duration-700 ease-in-out ${
                     index === currentSlide
                       ? 'opacity-100 translate-x-0 scale-100'
-                      : index < currentSlide
+                      : direction === 'next'
                       ? 'opacity-0 -translate-x-full scale-95'
                       : 'opacity-0 translate-x-full scale-95'
                   }`}
