@@ -26,18 +26,23 @@ export default function Contact() {
     setHasSubmitted(true);
 
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contact',
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          serviceType: formData.serviceType,
-          message: formData.message,
+      // Run fetch and minimum delay in parallel
+      await Promise.all([
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({
+            'form-name': 'contact',
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            serviceType: formData.serviceType,
+            message: formData.message,
+          }),
         }),
-      });
+        // Minimum 1.5 second delay to show loading state
+        new Promise(resolve => setTimeout(resolve, 1500))
+      ]);
 
       setSubmitted(true);
 
