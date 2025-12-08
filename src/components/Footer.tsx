@@ -43,11 +43,13 @@ const Footer: React.FC = () => {
           {/* Brand / Authority Column */}
           <div className="space-y-6">
             <div className="space-y-3 text-center flex flex-col items-center">
-              <img
-                src="/images/paul-white-logo.png"
-                alt="Paul The Plumber"
-                className="h-20 sm:h-24 w-auto"
-              />
+              <div className="bg-white rounded-lg px-4 py-2">
+                <img
+                  src="/images/Paultheplumber-logo.PNG"
+                  alt="Paul The Plumber"
+                  className="h-16 sm:h-20 w-auto"
+                />
+              </div>
               <p className="text-sm text-gray-400 max-w-md">
                 Fast, friendly, expert plumbing service for Omaha families,
                 with honest pricing and clean, respectful techs in your home.
