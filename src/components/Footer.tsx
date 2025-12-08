@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                   className="group relative flex flex-col items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-900 to-blue-950 shadow-lg shadow-blue-950/60 hover:shadow-blue-950/90 hover:scale-105 transition-all duration-300"
                   title="BBB Accredited"
                 >
-                  <div className="text-white font-black text-[10px] leading-none tracking-tighter" style={{ fontFamily: 'Arial Black, sans-serif' }}>
+                  <div className="text-white font-black text-sm leading-none tracking-tight" style={{ fontFamily: 'Arial Black, sans-serif' }}>
                     BBB
                   </div>
                   <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
