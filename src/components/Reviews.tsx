@@ -99,7 +99,7 @@ export default function Reviews() {
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
           {reviews.map((review, index) => (
-            <LazyLoad key={index} animation="fadeSlideUp" delay={index * 150} duration={600}>
+            <LazyLoad key={index} animation="fadeSlideUp" delay={index * 150} duration={600} className="rounded-2xl overflow-hidden">
               <div
                 className="group relative bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/30 hover:border-blue-300"
               >
