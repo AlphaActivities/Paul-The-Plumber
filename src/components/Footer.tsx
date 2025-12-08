@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-baseline gap-3">
+            <div className="flex items-baseline gap-3 justify-center">
               <div className="text-yellow-400 text-lg leading-none">
                 ★★★★★
               </div>
