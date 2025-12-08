@@ -62,7 +62,7 @@ export default function CallPopup() {
             {/* Phone number display */}
             <div className="bg-white rounded-xl p-6 shadow-xl">
               <p className="text-gray-600 text-sm font-semibold uppercase tracking-wider mb-2">
-                Call or Text
+                Call us Directly
               </p>
               <a
                 href="tel:4025960200"
