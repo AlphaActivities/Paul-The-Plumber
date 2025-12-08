@@ -5,7 +5,6 @@ import LazyLoad from './LazyLoad';
 export default function Reviews() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
   const reviews = [
     {
@@ -32,7 +31,6 @@ export default function Reviews() {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setDirection('next');
       setCurrentSlide((prev) => (prev + 1) % reviews.length);
     }, 6000);
 
@@ -40,21 +38,18 @@ export default function Reviews() {
   }, [isAutoPlaying, reviews.length]);
 
   const nextSlide = () => {
-    setDirection('next');
     setCurrentSlide((prev) => (prev + 1) % reviews.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const prevSlide = () => {
-    setDirection('prev');
     setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 'next' : 'prev');
     setCurrentSlide(index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
@@ -142,60 +137,68 @@ export default function Reviews() {
           <div className="md:hidden relative px-4">
           <div className="relative rounded-3xl shadow-2xl">
             <div className="relative min-h-[640px] overflow-hidden rounded-3xl">
-              {reviews.map((review, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                    index === currentSlide
-                      ? 'opacity-100 translate-x-0 scale-100'
-                      : direction === 'next'
-                      ? 'opacity-0 -translate-x-full scale-95'
-                      : 'opacity-0 translate-x-full scale-95'
-                  }`}
-                >
-                  <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-3xl h-full shadow-xl">
-                    <div className="bg-gradient-to-r from-blue-600 via-red-500 to-yellow-500 px-6 py-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-5 h-5 text-white" />
-                          <span className="text-white font-semibold text-sm tracking-wide">
-                            Google Maps Review
-                          </span>
+              {reviews.map((review, index) => {
+                const isActive = index === currentSlide;
+                const isPrev = index === (currentSlide - 1 + reviews.length) % reviews.length;
+                const isNext = index === (currentSlide + 1) % reviews.length;
+
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                      isActive
+                        ? 'opacity-100 translate-x-0 scale-100 z-10'
+                        : isPrev
+                        ? 'opacity-0 -translate-x-full scale-95 z-0'
+                        : isNext
+                        ? 'opacity-0 translate-x-full scale-95 z-0'
+                        : 'opacity-0 translate-x-full scale-95 z-0'
+                    }`}
+                  >
+                    <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-3xl h-full shadow-xl">
+                      <div className="bg-gradient-to-r from-blue-600 via-red-500 to-yellow-500 px-6 py-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="w-5 h-5 text-white" />
+                            <span className="text-white font-semibold text-sm tracking-wide">
+                              Google Maps Review
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                            <Star className="w-5 h-5 fill-white text-white drop-shadow" />
+                            <span className="text-white font-bold text-base">{review.rating}.0</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1 bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                          <Star className="w-5 h-5 fill-white text-white drop-shadow" />
-                          <span className="text-white font-bold text-base">{review.rating}.0</span>
+                      </div>
+
+                      <div className="p-8">
+                        <div className="flex gap-1.5 mb-6 justify-center">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-7 h-7 fill-yellow-400 text-yellow-400 drop-shadow-md"
+                            />
+                          ))}
                         </div>
-                      </div>
-                    </div>
 
-                    <div className="p-8">
-                      <div className="flex gap-1.5 mb-6 justify-center">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-7 h-7 fill-yellow-400 text-yellow-400 drop-shadow-md"
-                          />
-                        ))}
-                      </div>
+                        <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-2xl p-6 mb-6 shadow-inner border border-blue-100/50">
+                          <p className="text-gray-900 text-lg leading-relaxed italic font-medium">
+                            "{review.text}"
+                          </p>
+                        </div>
 
-                      <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-2xl p-6 mb-6 shadow-inner border border-blue-100/50">
-                        <p className="text-gray-900 text-lg leading-relaxed italic font-medium">
-                          "{review.text}"
-                        </p>
-                      </div>
-
-                      <div className="border-t-2 border-gradient-to-r from-blue-200 via-purple-200 to-pink-200 pt-6 text-center">
-                        <p className="font-bold text-gray-900 text-xl mb-1">{review.name}</p>
-                        <div className="flex items-center justify-center gap-2 text-gray-700">
-                          <MapPin className="w-4 h-4" />
-                          <p className="text-base">{review.city}</p>
+                        <div className="border-t-2 border-gradient-to-r from-blue-200 via-purple-200 to-pink-200 pt-6 text-center">
+                          <p className="font-bold text-gray-900 text-xl mb-1">{review.name}</p>
+                          <div className="flex items-center justify-center gap-2 text-gray-700">
+                            <MapPin className="w-4 h-4" />
+                            <p className="text-base">{review.city}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <button
