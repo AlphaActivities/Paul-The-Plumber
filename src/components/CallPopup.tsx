@@ -5,17 +5,12 @@ export default function CallPopup() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const hasSeenPopup = sessionStorage.getItem('hasSeenCallPopup');
-
-    if (!hasSeenPopup) {
-      // Show instantly for now (will add 30 second delay later)
-      setIsVisible(true);
-    }
+    // Show instantly for now (will add 30 second delay later)
+    setIsVisible(true);
   }, []);
 
   const handleClose = () => {
     setIsVisible(false);
-    sessionStorage.setItem('hasSeenCallPopup', 'true');
   };
 
   if (!isVisible) return null;
