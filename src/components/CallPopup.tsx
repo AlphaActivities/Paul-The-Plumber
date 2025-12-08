@@ -5,8 +5,11 @@ export default function CallPopup() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show instantly for now (will add 30 second delay later)
-    setIsVisible(true);
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 30000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
