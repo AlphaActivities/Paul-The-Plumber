@@ -44,9 +44,9 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <div className="space-y-3 text-center flex flex-col items-center">
               <img
-                src="/images/Paultheplumber-logo.PNG"
+                src="/images/paul-white-logo.png"
                 alt="Paul The Plumber"
-                className="h-16 sm:h-20 w-auto mix-blend-screen"
+                className="h-16 sm:h-20 w-auto"
               />
               <p className="text-sm text-gray-400 max-w-md">
                 Fast, friendly, expert plumbing service for Omaha families,
