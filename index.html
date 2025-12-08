@@ -21,6 +21,17 @@
     <meta name="twitter:image" content="/images/Plumber-houn-text.PNG">
 </head>
   <body>
+    <!-- Hidden Netlify detection form for SPA -->
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <select name="serviceType">
+        <option value="General Service">General Service</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

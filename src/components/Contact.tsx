@@ -14,16 +14,34 @@ export default function Contact() {
     message: '',
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
     setSending(true);
     setHasSubmitted(true);
 
-    setTimeout(() => {
-      setSending(false);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          serviceType: formData.serviceType,
+          message: formData.message,
+        }),
+      });
+
       setSubmitted(true);
 
+      // Reset form after a short delay so the success state is visible
       setTimeout(() => {
         setSubmitted(false);
         setFormData({
@@ -34,7 +52,13 @@ export default function Contact() {
           message: '',
         });
       }, 3000);
-    }, 2500);
+    } catch (error) {
+      console.error('Error submitting Netlify form', error);
+      // Roll back "hasSubmitted" if there was an error
+      setHasSubmitted(false);
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -112,7 +136,14 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Send Us a Message
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="contact" />
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                       Name *
