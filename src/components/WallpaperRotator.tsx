@@ -17,10 +17,10 @@ export default function WallpaperRotator() {
             background-position: 46% 80px;
           }
           45% {
-            background-position: 85% 80px;
+            background-position: 90% 80px;
           }
           60% {
-            background-position: 85% 80px;
+            background-position: 90% 80px;
           }
           90% {
             background-position: 46% 80px;
