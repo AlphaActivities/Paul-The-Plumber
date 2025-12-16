@@ -179,15 +179,15 @@ export default function CallPopup() {
             </a>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs text-white/80 font-semibold pt-1 sm:pt-2">
-              <span className="flex items-center gap-1">
-                <span className="text-green-400">✓</span> Licensed & Insured
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-sm sm:text-base text-white/90 font-bold pt-1 sm:pt-2">
+              <span className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-green-400 text-lg sm:text-xl">✓</span> Licensed & Insured
               </span>
-              <span className="flex items-center gap-1">
-                <span className="text-green-400">✓</span> Background Checked
+              <span className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-green-400 text-lg sm:text-xl">✓</span> Background Checked
               </span>
-              <span className="flex items-center gap-1">
-                <span className="text-green-400">✓</span> 5.0 Star Rating
+              <span className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-green-400 text-lg sm:text-xl">✓</span> 5.0 Star Rating
               </span>
             </div>
           </div>
