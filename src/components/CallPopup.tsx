@@ -68,101 +68,72 @@ export default function CallPopup() {
               {/* Dark gradient overlay on bottom half for text readability */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
-              {/* Luxurious 3D ribbon banner */}
-              <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 flex items-center" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))' }}>
-                {/* Left ribbon tail with 3D fold effect */}
-                <svg width="60" height="48" viewBox="0 0 60 48" className="relative" style={{ marginRight: '-2px' }}>
-                  <defs>
-                    {/* Main ribbon gradient for left tail */}
-                    <linearGradient id="leftRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#FF4545" />
-                      <stop offset="50%" stopColor="#E42313" />
-                      <stop offset="100%" stopColor="#B91C1C" />
-                    </linearGradient>
-                    {/* Darker fold gradient */}
-                    <linearGradient id="leftFoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#B91C1C" />
-                      <stop offset="50%" stopColor="#991B1B" />
-                      <stop offset="100%" stopColor="#7F1D1D" />
-                    </linearGradient>
-                    {/* Glossy shine */}
-                    <linearGradient id="leftShineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="white" stopOpacity="0.5" />
-                      <stop offset="30%" stopColor="white" stopOpacity="0.1" />
-                      <stop offset="70%" stopColor="transparent" />
-                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
-                    </linearGradient>
-                  </defs>
-                  {/* Main tail surface */}
-                  <path d="M 60,0 L 15,0 L 10,24 L 15,48 L 60,48 Z" fill="url(#leftRibbonGrad)" />
-                  {/* V-notch fold - darker for depth */}
-                  <path d="M 15,0 L 0,12 L 10,24 L 15,48 L 0,36 L 10,24 Z" fill="url(#leftFoldGrad)" />
-                  {/* Glossy overlay on main surface */}
-                  <path d="M 60,0 L 15,0 L 10,24 L 15,48 L 60,48 Z" fill="url(#leftShineGrad)" />
-                  {/* Subtle highlight on fold edge */}
-                  <path d="M 15,0 L 10,24 L 15,48" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
-                </svg>
+              {/* Sleek premium banner tag */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))' }}>
+                <div className="relative flex items-center">
+                  {/* Left angled edge */}
+                  <svg width="20" height="36" viewBox="0 0 20 36" className="relative" style={{ marginRight: '-1px' }}>
+                    <defs>
+                      <linearGradient id="leftEdgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#1F2937" />
+                        <stop offset="100%" stopColor="#111827" />
+                      </linearGradient>
+                      <linearGradient id="leftShine" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="transparent" />
+                        <stop offset="100%" stopColor="white" stopOpacity="0.1" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 0,8 L 20,0 L 20,36 L 0,28 Z" fill="url(#leftEdgeGrad)" />
+                    <path d="M 0,8 L 20,0 L 20,36 L 0,28 Z" fill="url(#leftShine)" />
+                  </svg>
 
-                {/* Main ribbon body */}
-                <div className="relative px-8 py-2 bg-gradient-to-b from-[#FF4545] via-[#E42313] to-[#B91C1C]" style={{ height: '48px', minWidth: '220px' }}>
-                  {/* Top glossy shine */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-transparent pointer-events-none" style={{ height: '40%' }}></div>
+                  {/* Main banner body with metallic finish */}
+                  <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-950 px-6 flex items-center justify-center" style={{ height: '36px', minWidth: '200px' }}>
+                    {/* Top metallic shine */}
+                    <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
-                  {/* Bottom shadow for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" style={{ top: '60%' }}></div>
+                    {/* Glossy overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10"></div>
 
-                  {/* Gold trim on top edge */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+                    {/* Red accent stripe on top */}
+                    <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-80"></div>
 
-                  {/* Gold trim on bottom edge */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+                    {/* Red accent stripe on bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-80"></div>
 
-                  {/* Text container */}
-                  <div className="relative h-full flex items-center justify-center">
-                    <p
-                      className="text-white text-base sm:text-lg font-bold uppercase tracking-[0.15em] text-center select-none"
-                      style={{
-                        textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2)',
-                        letterSpacing: '0.15em'
-                      }}
-                    >
-                      Let's Talk Now
-                    </p>
+                    {/* Gold center line */}
+                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
+
+                    {/* Text */}
+                    <div className="relative flex items-center gap-2">
+                      <p
+                        className="text-white text-sm font-bold uppercase tracking-[0.2em] select-none"
+                        style={{
+                          textShadow: '0 0 10px rgba(239, 68, 68, 0.5), 0 2px 4px rgba(0,0,0,0.8)',
+                          letterSpacing: '0.2em'
+                        }}
+                      >
+                        Let's Talk Now
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Right ribbon tail with 3D fold effect */}
-                <svg width="60" height="48" viewBox="0 0 60 48" className="relative" style={{ marginLeft: '-2px' }}>
-                  <defs>
-                    {/* Main ribbon gradient for right tail */}
-                    <linearGradient id="rightRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#FF4545" />
-                      <stop offset="50%" stopColor="#E42313" />
-                      <stop offset="100%" stopColor="#B91C1C" />
-                    </linearGradient>
-                    {/* Darker fold gradient */}
-                    <linearGradient id="rightFoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#B91C1C" />
-                      <stop offset="50%" stopColor="#991B1B" />
-                      <stop offset="100%" stopColor="#7F1D1D" />
-                    </linearGradient>
-                    {/* Glossy shine */}
-                    <linearGradient id="rightShineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="white" stopOpacity="0.5" />
-                      <stop offset="30%" stopColor="white" stopOpacity="0.1" />
-                      <stop offset="70%" stopColor="transparent" />
-                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
-                    </linearGradient>
-                  </defs>
-                  {/* Main tail surface */}
-                  <path d="M 0,0 L 45,0 L 50,24 L 45,48 L 0,48 Z" fill="url(#rightRibbonGrad)" />
-                  {/* V-notch fold - darker for depth */}
-                  <path d="M 45,0 L 60,12 L 50,24 L 45,48 L 60,36 L 50,24 Z" fill="url(#rightFoldGrad)" />
-                  {/* Glossy overlay on main surface */}
-                  <path d="M 0,0 L 45,0 L 50,24 L 45,48 L 0,48 Z" fill="url(#rightShineGrad)" />
-                  {/* Subtle highlight on fold edge */}
-                  <path d="M 45,0 L 50,24 L 45,48" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
-                </svg>
+                  {/* Right angled edge */}
+                  <svg width="20" height="36" viewBox="0 0 20 36" className="relative" style={{ marginLeft: '-1px' }}>
+                    <defs>
+                      <linearGradient id="rightEdgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#1F2937" />
+                        <stop offset="100%" stopColor="#111827" />
+                      </linearGradient>
+                      <linearGradient id="rightShine" x1="100%" y1="0%" x2="0%" y2="0%">
+                        <stop offset="0%" stopColor="transparent" />
+                        <stop offset="100%" stopColor="white" stopOpacity="0.1" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 0,0 L 20,8 L 20,28 L 0,36 Z" fill="url(#rightEdgeGrad)" />
+                    <path d="M 0,0 L 20,8 L 20,28 L 0,36 Z" fill="url(#rightShine)" />
+                  </svg>
+                </div>
               </div>
 
               {/* Phone number at bottom */}
