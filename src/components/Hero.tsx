@@ -74,8 +74,32 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-end justify-items-start">
           <div className="max-w-sm rounded-2xl shadow-2xl border-4 border-[#0056A4] lg:shadow-[0_0_60px_rgba(0,86,164,0.8),0_0_120px_rgba(0,86,164,0.4)] w-full md:w-auto">
             <div className="rounded-2xl bg-white/50 p-8 backdrop-blur hero-shimmer-inner">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
-                <span className="text-[#E42313]">Don't Let</span> Plumbing Problems <span className="text-[#E42313] whitespace-nowrap">Hound You</span>
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 900,
+                  background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                  filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+                }}
+              >
+                <span style={{
+                  background: 'linear-gradient(135deg, #E42313 0%, #DC2626 50%, #B91C1C 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 2px 6px rgba(228, 35, 19, 0.3))'
+                }}>Don't Let</span> Plumbing Problems <span style={{
+                  background: 'linear-gradient(135deg, #E42313 0%, #DC2626 50%, #B91C1C 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 2px 6px rgba(228, 35, 19, 0.3))'
+                }} className="whitespace-nowrap">Hound You</span>
               </h1>
 
               <p className="text-lg md:text-xl mb-8 text-black leading-relaxed text-center md:text-left">
