@@ -69,46 +69,58 @@ export default function CallPopup() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
               {/* Luxurious ribbon banner at top with "Let's Talk Now" */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 w-1/2 min-w-[200px]">
-                <div className="relative">
-                  {/* Main ribbon body with glossy effect */}
-                  <div className="relative bg-gradient-to-r from-[#E42313]/75 via-red-600/80 to-[#E42313]/75 py-2 px-6 shadow-2xl backdrop-blur-md">
-                    {/* Top shine for luxurious effect */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-black/15 pointer-events-none"></div>
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 flex items-center">
+                {/* Left ribbon tail extending to the left */}
+                <svg width="50" height="40" viewBox="0 0 50 40" className="drop-shadow-lg">
+                  <defs>
+                    <linearGradient id="leftTailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#8B0000" stopOpacity="0.75" />
+                      <stop offset="100%" stopColor="#B22222" stopOpacity="0.8" />
+                    </linearGradient>
+                  </defs>
+                  {/* Ribbon tail with V-notch at the end - extends left */}
+                  <path d="M 50,0 L 0,0 L 8,20 L 0,40 L 50,40 Z" fill="url(#leftTailGradient)" />
+                  {/* Glossy shine overlay */}
+                  <path d="M 50,0 L 0,0 L 8,20 L 0,40 L 50,40 Z" fill="url(#shineGradient)" opacity="0.3" />
+                  <defs>
+                    <linearGradient id="shineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="white" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="white" stopOpacity="0" />
+                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                </svg>
 
-                    <p className="relative text-white text-sm sm:text-base font-bold uppercase tracking-wide text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.9)' }}>
-                      Let's Talk Now
-                    </p>
-                  </div>
+                {/* Main ribbon body with glossy effect */}
+                <div className="relative bg-gradient-to-r from-[#E42313]/75 via-red-600/80 to-[#E42313]/75 py-2 px-6 shadow-2xl backdrop-blur-md min-w-[200px]">
+                  {/* Top shine for luxurious effect */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/15 pointer-events-none"></div>
 
-                  {/* Left ribbon tail with V-notch (snake tongue style) */}
-                  <div className="absolute left-0 top-full">
-                    <svg width="28" height="22" viewBox="0 0 28 22" className="drop-shadow-lg">
-                      <defs>
-                        <linearGradient id="leftRibbonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#8B0000" stopOpacity="0.75" />
-                          <stop offset="100%" stopColor="#B22222" stopOpacity="0.8" />
-                        </linearGradient>
-                      </defs>
-                      {/* Ribbon tail with V-notch */}
-                      <path d="M 0,0 L 28,0 L 14,22 L 18,11 L 10,11 Z" fill="url(#leftRibbonGradient)" />
-                    </svg>
-                  </div>
-
-                  {/* Right ribbon tail with V-notch (snake tongue style) */}
-                  <div className="absolute right-0 top-full">
-                    <svg width="28" height="22" viewBox="0 0 28 22" className="drop-shadow-lg">
-                      <defs>
-                        <linearGradient id="rightRibbonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#B22222" stopOpacity="0.8" />
-                          <stop offset="100%" stopColor="#8B0000" stopOpacity="0.75" />
-                        </linearGradient>
-                      </defs>
-                      {/* Ribbon tail with V-notch */}
-                      <path d="M 0,0 L 28,0 L 14,22 L 10,11 L 18,11 Z" fill="url(#rightRibbonGradient)" />
-                    </svg>
-                  </div>
+                  <p className="relative text-white text-sm sm:text-base font-bold uppercase tracking-wide text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.9)' }}>
+                    Let's Talk Now
+                  </p>
                 </div>
+
+                {/* Right ribbon tail extending to the right */}
+                <svg width="50" height="40" viewBox="0 0 50 40" className="drop-shadow-lg">
+                  <defs>
+                    <linearGradient id="rightTailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#B22222" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#8B0000" stopOpacity="0.75" />
+                    </linearGradient>
+                  </defs>
+                  {/* Ribbon tail with V-notch at the end - extends right */}
+                  <path d="M 0,0 L 50,0 L 42,20 L 50,40 L 0,40 Z" fill="url(#rightTailGradient)" />
+                  {/* Glossy shine overlay */}
+                  <path d="M 0,0 L 50,0 L 42,20 L 50,40 L 0,40 Z" fill="url(#shineGradientRight)" opacity="0.3" />
+                  <defs>
+                    <linearGradient id="shineGradientRight" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="white" stopOpacity="0.4" />
+                      <stop offset="50%" stopColor="white" stopOpacity="0" />
+                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
 
               {/* Phone number at bottom */}
