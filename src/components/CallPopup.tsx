@@ -69,7 +69,14 @@ export default function CallPopup() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
               {/* Luxurious red banner with gold trim */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 opacity-80" style={{ filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))' }}>
+              <div
+                className="absolute top-1 left-1/2 -translate-x-1/2 z-10"
+                style={{
+                  filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))',
+                  maskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 100%)'
+                }}
+              >
                 <div className="relative flex items-center">
                   {/* Left angled edge */}
                   <svg width="18" height="32" viewBox="0 0 18 32" className="relative" style={{ marginRight: '-1px' }}>
