@@ -161,7 +161,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="John Smith"
-                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all placeholder:text-gray-500"
                     />
                   </div>
 
@@ -177,7 +177,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="402-555-1234"
-                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all placeholder:text-gray-500"
                     />
                   </div>
 
@@ -193,7 +193,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all placeholder:text-gray-500"
                     />
                   </div>
 
@@ -230,7 +230,7 @@ export default function Contact() {
                       required
                       rows={4}
                       placeholder="Describe your plumbing issue or service needs..."
-                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all resize-none placeholder:text-gray-500"
                     ></textarea>
                   </div>
 
