@@ -68,70 +68,59 @@ export default function CallPopup() {
               {/* Dark gradient overlay on bottom half for text readability */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
-              {/* Sleek premium banner tag */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.5))' }}>
+              {/* Luxurious red banner with gold trim */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))' }}>
                 <div className="relative flex items-center">
                   {/* Left angled edge */}
-                  <svg width="20" height="36" viewBox="0 0 20 36" className="relative" style={{ marginRight: '-1px' }}>
+                  <svg width="18" height="32" viewBox="0 0 18 32" className="relative" style={{ marginRight: '-1px' }}>
                     <defs>
-                      <linearGradient id="leftEdgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#1F2937" />
-                        <stop offset="100%" stopColor="#111827" />
-                      </linearGradient>
-                      <linearGradient id="leftShine" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="transparent" />
-                        <stop offset="100%" stopColor="white" stopOpacity="0.1" />
+                      <linearGradient id="leftRedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#DC2626" />
+                        <stop offset="50%" stopColor="#B91C1C" />
+                        <stop offset="100%" stopColor="#991B1B" />
                       </linearGradient>
                     </defs>
-                    <path d="M 0,8 L 20,0 L 20,36 L 0,28 Z" fill="url(#leftEdgeGrad)" />
-                    <path d="M 0,8 L 20,0 L 20,36 L 0,28 Z" fill="url(#leftShine)" />
+                    <path d="M 0,8 L 18,0 L 18,32 L 0,24 Z" fill="url(#leftRedGrad)" />
+                    <path d="M 0,8 L 18,0 L 18,32 L 0,24 Z" fill="url(#leftRedGrad)" opacity="0.3" />
                   </svg>
 
-                  {/* Main banner body with metallic finish */}
-                  <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-950 px-6 flex items-center justify-center" style={{ height: '36px', minWidth: '200px' }}>
-                    {/* Top metallic shine */}
-                    <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  {/* Main banner body - bold red */}
+                  <div className="relative bg-gradient-to-b from-red-600 via-red-700 to-red-800 px-6 flex items-center justify-center" style={{ height: '32px', minWidth: '190px' }}>
+                    {/* Top gold border */}
+                    <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-                    {/* Glossy overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10"></div>
+                    {/* Bottom gold border */}
+                    <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-                    {/* Red accent stripe on top */}
-                    <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-80"></div>
+                    {/* Glossy shine on top */}
+                    <div className="absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/30 via-white/10 to-transparent"></div>
 
-                    {/* Red accent stripe on bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-80"></div>
-
-                    {/* Gold center line */}
-                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
+                    {/* Shadow on bottom for depth */}
+                    <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/20 to-transparent"></div>
 
                     {/* Text */}
-                    <div className="relative flex items-center gap-2">
-                      <p
-                        className="text-white text-sm font-bold uppercase tracking-[0.2em] select-none"
-                        style={{
-                          textShadow: '0 0 10px rgba(239, 68, 68, 0.5), 0 2px 4px rgba(0,0,0,0.8)',
-                          letterSpacing: '0.2em'
-                        }}
-                      >
-                        Let's Talk Now
-                      </p>
-                    </div>
+                    <p
+                      className="relative text-white text-sm font-bold uppercase tracking-[0.2em] select-none"
+                      style={{
+                        textShadow: '0 2px 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.3)',
+                        letterSpacing: '0.2em'
+                      }}
+                    >
+                      Let's Talk Now
+                    </p>
                   </div>
 
                   {/* Right angled edge */}
-                  <svg width="20" height="36" viewBox="0 0 20 36" className="relative" style={{ marginLeft: '-1px' }}>
+                  <svg width="18" height="32" viewBox="0 0 18 32" className="relative" style={{ marginLeft: '-1px' }}>
                     <defs>
-                      <linearGradient id="rightEdgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#1F2937" />
-                        <stop offset="100%" stopColor="#111827" />
-                      </linearGradient>
-                      <linearGradient id="rightShine" x1="100%" y1="0%" x2="0%" y2="0%">
-                        <stop offset="0%" stopColor="transparent" />
-                        <stop offset="100%" stopColor="white" stopOpacity="0.1" />
+                      <linearGradient id="rightRedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#DC2626" />
+                        <stop offset="50%" stopColor="#B91C1C" />
+                        <stop offset="100%" stopColor="#991B1B" />
                       </linearGradient>
                     </defs>
-                    <path d="M 0,0 L 20,8 L 20,28 L 0,36 Z" fill="url(#rightEdgeGrad)" />
-                    <path d="M 0,0 L 20,8 L 20,28 L 0,36 Z" fill="url(#rightShine)" />
+                    <path d="M 0,0 L 18,8 L 18,24 L 0,32 Z" fill="url(#rightRedGrad)" />
+                    <path d="M 0,0 L 18,8 L 18,24 L 0,32 Z" fill="url(#rightRedGrad)" opacity="0.3" />
                   </svg>
                 </div>
               </div>
