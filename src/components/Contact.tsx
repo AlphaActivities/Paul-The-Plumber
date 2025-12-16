@@ -160,6 +160,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      placeholder="John Smith"
                       className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
                     />
                   </div>
@@ -175,6 +176,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
+                      placeholder="402-555-1234"
                       className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
                     />
                   </div>
@@ -190,6 +192,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      placeholder="john@example.com"
                       className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all"
                     />
                   </div>
@@ -226,6 +229,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
+                      placeholder="Describe your plumbing issue or service needs..."
                       className="w-full px-4 py-3 border-2 border-white/20 bg-white/95 rounded-lg focus:ring-2 focus:ring-white focus:border-white outline-none transition-all resize-none"
                     ></textarea>
                   </div>
