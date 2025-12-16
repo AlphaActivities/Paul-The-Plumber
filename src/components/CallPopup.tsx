@@ -68,11 +68,17 @@ export default function CallPopup() {
               {/* Dark gradient overlay on bottom half for text readability */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
-              {/* Content overlay - positioned at bottom */}
+              {/* Banner at top with "Let's Talk Now" */}
+              <div className="absolute top-0 left-0 right-0 z-10">
+                <div className="bg-gradient-to-r from-[#E42313]/70 via-red-600/70 to-[#E42313]/70 backdrop-blur-sm py-3 px-4">
+                  <p className="text-white text-lg sm:text-xl font-bold uppercase tracking-wider text-center drop-shadow-lg">
+                    Let's Talk Now
+                  </p>
+                </div>
+              </div>
+
+              {/* Phone number at bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-4">
-                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wider mb-3 drop-shadow-lg">
-                  Call us Directly
-                </p>
                 <a
                   href="tel:4025960200"
                   className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-3 whitespace-nowrap drop-shadow-lg"
