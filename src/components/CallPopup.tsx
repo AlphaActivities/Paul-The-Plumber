@@ -57,18 +57,30 @@ export default function CallPopup() {
               Same-Day & Emergency Service Available
             </p>
 
-            {/* Phone number display */}
-            <div className="bg-white rounded-xl p-6 shadow-xl">
-              <p className="text-gray-600 text-sm font-semibold uppercase tracking-wider mb-2">
-                Call us Directly
-              </p>
-              <a
-                href="tel:4025960200"
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 sm:gap-3 whitespace-nowrap"
-              >
-                <Phone className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0" />
-                402-596-0200
-              </a>
+            {/* Phone number display with doggy photo background */}
+            <div className="relative rounded-xl shadow-xl overflow-hidden" style={{ minHeight: '240px' }}>
+              {/* Background image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: 'url(/images/doggy-plumber.jpg)' }}
+              />
+
+              {/* Dark gradient overlay on bottom half for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80" />
+
+              {/* Content overlay */}
+              <div className="relative z-10 flex flex-col justify-end h-full p-6 pb-8">
+                <p className="text-white text-xs font-semibold uppercase tracking-wider mb-2 drop-shadow-lg">
+                  Call us Directly
+                </p>
+                <a
+                  href="tel:4025960200"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 whitespace-nowrap drop-shadow-lg"
+                >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  402-596-0200
+                </a>
+              </div>
             </div>
 
             {/* CTA Button */}
