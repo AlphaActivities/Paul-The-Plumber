@@ -58,7 +58,7 @@ export default function CallPopup() {
             </p>
 
             {/* Phone number display with doggy photo background */}
-            <div className="relative rounded-xl shadow-xl overflow-hidden" style={{ minHeight: '240px' }}>
+            <div className="relative rounded-xl shadow-xl overflow-hidden h-64">
               {/* Background image */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -66,16 +66,16 @@ export default function CallPopup() {
               />
 
               {/* Dark gradient overlay on bottom half for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
-              {/* Content overlay */}
-              <div className="relative z-10 flex flex-col justify-end h-full p-6 pb-8">
-                <p className="text-white text-xs font-semibold uppercase tracking-wider mb-2 drop-shadow-lg">
+              {/* Content overlay - positioned at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-6 pb-8">
+                <p className="text-white text-xs font-bold uppercase tracking-wider mb-2 drop-shadow-lg">
                   Call us Directly
                 </p>
                 <a
                   href="tel:4025960200"
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 whitespace-nowrap drop-shadow-lg"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 whitespace-nowrap drop-shadow-lg"
                 >
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   402-596-0200
