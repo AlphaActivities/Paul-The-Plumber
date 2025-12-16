@@ -28,37 +28,37 @@ export default function CallPopup() {
 
       {/* Popup card */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90%] max-w-md animate-scaleIn">
-        <div className="relative bg-gradient-to-br from-[#0056A4] via-blue-600 to-blue-700 rounded-2xl shadow-2xl p-8 border-4 border-white/20">
+        <div className="relative bg-gradient-to-br from-[#0056A4] via-blue-600 to-blue-700 rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 border-4 border-white/20">
 
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all hover:scale-110 group"
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all hover:scale-110 group"
             aria-label="Close popup"
           >
-            <X className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
           </button>
 
           {/* Content */}
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-red-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg animate-pulse">
               <span className="w-2 h-2 bg-white rounded-full"></span>
               AVAILABLE NOW
             </div>
 
             {/* Main heading */}
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               Need a Plumber Now?
             </h2>
 
             {/* Subtext */}
-            <p className="text-white/90 text-lg font-medium">
+            <p className="text-white/90 text-base sm:text-lg font-medium">
               Same-Day & Emergency Service Available
             </p>
 
             {/* Phone number display with doggy photo background */}
-            <div className="relative rounded-xl shadow-xl overflow-hidden h-64">
+            <div className="relative rounded-xl shadow-xl overflow-hidden h-48 sm:h-56 md:h-64">
               {/* Background image */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -70,7 +70,7 @@ export default function CallPopup() {
 
               {/* Luxurious red banner with gold trim */}
               <div
-                className="absolute top-1 left-1/2 -translate-x-1/2 z-10"
+                className="absolute top-1 left-1/2 -translate-x-1/2 z-10 scale-75 sm:scale-90 md:scale-100"
                 style={{
                   filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))',
                   maskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 100%)',
@@ -92,7 +92,7 @@ export default function CallPopup() {
                   </svg>
 
                   {/* Main banner body - bold red */}
-                  <div className="relative bg-gradient-to-b from-red-600 via-red-700 to-red-800 px-6 flex items-center justify-center" style={{ height: '32px', minWidth: '190px' }}>
+                  <div className="relative bg-gradient-to-b from-red-600 via-red-700 to-red-800 px-4 sm:px-6 flex items-center justify-center" style={{ height: '32px', minWidth: '160px' }}>
                     {/* Top gold border */}
                     <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
@@ -132,12 +132,12 @@ export default function CallPopup() {
               </div>
 
               {/* Phone number at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-4">
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-2 sm:p-3 md:p-4">
                 <a
                   href="tel:4025960200"
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-3 whitespace-nowrap drop-shadow-lg"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0056A4] hover:text-[#E42313] transition-colors flex items-center justify-center gap-2 sm:gap-3 whitespace-nowrap drop-shadow-lg"
                 >
-                  <Phone className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0" />
+                  <Phone className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex-shrink-0" />
                   402-596-0200
                 </a>
               </div>
@@ -146,7 +146,7 @@ export default function CallPopup() {
             {/* CTA Button */}
             <a
               href="tel:4025960200"
-              className="luxury-cta-button block w-full py-4 text-white rounded-full text-xl font-bold transition-all duration-300 relative overflow-hidden group"
+              className="luxury-cta-button block w-full py-3 sm:py-4 text-white rounded-full text-lg sm:text-xl font-bold transition-all duration-300 relative overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, #E42313 0%, #DC2626 25%, #B91C1C 50%, #DC2626 75%, #E42313 100%)',
                 boxShadow: '0 8px 32px rgba(228, 35, 19, 0.4), 0 4px 16px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2)',
@@ -179,7 +179,7 @@ export default function CallPopup() {
             </a>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap justify-center gap-3 text-xs text-white/80 font-semibold pt-2">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs text-white/80 font-semibold pt-1 sm:pt-2">
               <span className="flex items-center gap-1">
                 <span className="text-green-400">✓</span> Licensed & Insured
               </span>
