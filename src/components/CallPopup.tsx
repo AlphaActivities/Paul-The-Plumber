@@ -69,7 +69,7 @@ export default function CallPopup() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
               {/* Luxurious red banner with gold trim */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))' }}>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 opacity-80" style={{ filter: 'drop-shadow(0 6px 16px rgba(220, 38, 38, 0.6))' }}>
                 <div className="relative flex items-center">
                   {/* Left angled edge */}
                   <svg width="18" height="32" viewBox="0 0 18 32" className="relative" style={{ marginRight: '-1px' }}>
@@ -100,7 +100,7 @@ export default function CallPopup() {
 
                     {/* Text */}
                     <p
-                      className="relative text-white text-xs font-bold uppercase tracking-wider select-none whitespace-nowrap"
+                      className="relative text-white text-sm font-bold uppercase tracking-wider select-none whitespace-nowrap"
                       style={{
                         textShadow: '0 2px 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.3)'
                       }}
