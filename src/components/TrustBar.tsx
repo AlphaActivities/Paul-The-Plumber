@@ -12,18 +12,18 @@ export default function TrustBar() {
       iconBg: 'from-yellow-400 to-amber-600'
     },
     {
-      icon: Award,
-      text: 'BBB Accredited Business',
-      gradient: 'from-blue-500 via-blue-600 to-indigo-600',
-      glowColor: 'rgba(59, 130, 246, 0.6)',
-      iconBg: 'from-blue-500 to-blue-700'
-    },
-    {
       icon: CheckCircle,
       text: 'Angi Certified',
       gradient: 'from-emerald-400 via-green-500 to-teal-600',
       glowColor: 'rgba(16, 185, 129, 0.6)',
       iconBg: 'from-emerald-500 to-green-700'
+    },
+    {
+      icon: Award,
+      text: 'BBB Accredited Business',
+      gradient: 'from-blue-500 via-blue-600 to-indigo-600',
+      glowColor: 'rgba(59, 130, 246, 0.6)',
+      iconBg: 'from-blue-500 to-blue-700'
     },
     {
       icon: Shield,
