@@ -187,7 +187,7 @@ export default function CallPopup() {
                 <span className="text-green-400 text-lg sm:text-xl">✓</span> Background Checked
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="text-green-400 text-lg sm:text-xl">✓</span> 5.0 Star Rating
+                <span className="text-green-400 text-lg sm:text-xl">✓</span> Google 5.0 Star Rating
               </span>
             </div>
           </div>
