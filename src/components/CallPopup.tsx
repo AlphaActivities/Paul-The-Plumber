@@ -68,56 +68,100 @@ export default function CallPopup() {
               {/* Dark gradient overlay on bottom half for text readability */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/80" />
 
-              {/* Luxurious ribbon banner at top with "Let's Talk Now" */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 flex items-center h-[30px]">
-                {/* Left ribbon tail extending to the left */}
-                <svg width="50" height="30" viewBox="0 0 50 30" className="drop-shadow-lg" preserveAspectRatio="none">
+              {/* Luxurious 3D ribbon banner */}
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 flex items-center" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))' }}>
+                {/* Left ribbon tail with 3D fold effect */}
+                <svg width="60" height="48" viewBox="0 0 60 48" className="relative" style={{ marginRight: '-2px' }}>
                   <defs>
-                    <linearGradient id="leftTailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#8B0000" stopOpacity="0" />
-                      <stop offset="80%" stopColor="#B22222" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#E42313" stopOpacity="1" />
+                    {/* Main ribbon gradient for left tail */}
+                    <linearGradient id="leftRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#FF4545" />
+                      <stop offset="50%" stopColor="#E42313" />
+                      <stop offset="100%" stopColor="#B91C1C" />
                     </linearGradient>
-                    <linearGradient id="shineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="white" stopOpacity="0.3" />
-                      <stop offset="50%" stopColor="white" stopOpacity="0" />
-                      <stop offset="100%" stopColor="black" stopOpacity="0.15" />
+                    {/* Darker fold gradient */}
+                    <linearGradient id="leftFoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#B91C1C" />
+                      <stop offset="50%" stopColor="#991B1B" />
+                      <stop offset="100%" stopColor="#7F1D1D" />
+                    </linearGradient>
+                    {/* Glossy shine */}
+                    <linearGradient id="leftShineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="white" stopOpacity="0.5" />
+                      <stop offset="30%" stopColor="white" stopOpacity="0.1" />
+                      <stop offset="70%" stopColor="transparent" />
+                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
                     </linearGradient>
                   </defs>
-                  {/* Ribbon tail with V-notch at the end - extends left */}
-                  <path d="M 50,0 L 0,0 L 6,15 L 0,30 L 50,30 Z" fill="url(#leftTailGradient)" />
-                  {/* Glossy shine overlay */}
-                  <path d="M 50,0 L 0,0 L 6,15 L 0,30 L 50,30 Z" fill="url(#shineGradient)" opacity="0.4" />
+                  {/* Main tail surface */}
+                  <path d="M 60,0 L 15,0 L 10,24 L 15,48 L 60,48 Z" fill="url(#leftRibbonGrad)" />
+                  {/* V-notch fold - darker for depth */}
+                  <path d="M 15,0 L 0,12 L 10,24 L 15,48 L 0,36 L 10,24 Z" fill="url(#leftFoldGrad)" />
+                  {/* Glossy overlay on main surface */}
+                  <path d="M 60,0 L 15,0 L 10,24 L 15,48 L 60,48 Z" fill="url(#leftShineGrad)" />
+                  {/* Subtle highlight on fold edge */}
+                  <path d="M 15,0 L 10,24 L 15,48" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
                 </svg>
 
-                {/* Main ribbon body with glossy effect - fades from center to edges */}
-                <div className="relative bg-gradient-to-r from-transparent via-[#E42313] to-transparent py-1.5 px-6 shadow-2xl backdrop-blur-sm min-w-[200px] h-[30px] flex items-center justify-center">
-                  {/* Top shine for luxurious effect */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-black/15 pointer-events-none"></div>
+                {/* Main ribbon body */}
+                <div className="relative px-8 py-2 bg-gradient-to-b from-[#FF4545] via-[#E42313] to-[#B91C1C]" style={{ height: '48px', minWidth: '220px' }}>
+                  {/* Top glossy shine */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-transparent pointer-events-none" style={{ height: '40%' }}></div>
 
-                  <p className="relative text-white text-sm sm:text-base font-bold uppercase tracking-wide text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.9)' }}>
-                    Let's Talk Now
-                  </p>
+                  {/* Bottom shadow for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" style={{ top: '60%' }}></div>
+
+                  {/* Gold trim on top edge */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+
+                  {/* Gold trim on bottom edge */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
+
+                  {/* Text container */}
+                  <div className="relative h-full flex items-center justify-center">
+                    <p
+                      className="text-white text-base sm:text-lg font-bold uppercase tracking-[0.15em] text-center select-none"
+                      style={{
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2)',
+                        letterSpacing: '0.15em'
+                      }}
+                    >
+                      Let's Talk Now
+                    </p>
+                  </div>
                 </div>
 
-                {/* Right ribbon tail extending to the right */}
-                <svg width="50" height="30" viewBox="0 0 50 30" className="drop-shadow-lg" preserveAspectRatio="none">
+                {/* Right ribbon tail with 3D fold effect */}
+                <svg width="60" height="48" viewBox="0 0 60 48" className="relative" style={{ marginLeft: '-2px' }}>
                   <defs>
-                    <linearGradient id="rightTailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#E42313" stopOpacity="1" />
-                      <stop offset="20%" stopColor="#B22222" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#8B0000" stopOpacity="0" />
+                    {/* Main ribbon gradient for right tail */}
+                    <linearGradient id="rightRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#FF4545" />
+                      <stop offset="50%" stopColor="#E42313" />
+                      <stop offset="100%" stopColor="#B91C1C" />
                     </linearGradient>
-                    <linearGradient id="shineGradientRight" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="white" stopOpacity="0.3" />
-                      <stop offset="50%" stopColor="white" stopOpacity="0" />
-                      <stop offset="100%" stopColor="black" stopOpacity="0.15" />
+                    {/* Darker fold gradient */}
+                    <linearGradient id="rightFoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#B91C1C" />
+                      <stop offset="50%" stopColor="#991B1B" />
+                      <stop offset="100%" stopColor="#7F1D1D" />
+                    </linearGradient>
+                    {/* Glossy shine */}
+                    <linearGradient id="rightShineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="white" stopOpacity="0.5" />
+                      <stop offset="30%" stopColor="white" stopOpacity="0.1" />
+                      <stop offset="70%" stopColor="transparent" />
+                      <stop offset="100%" stopColor="black" stopOpacity="0.2" />
                     </linearGradient>
                   </defs>
-                  {/* Ribbon tail with V-notch at the end - extends right */}
-                  <path d="M 0,0 L 50,0 L 44,15 L 50,30 L 0,30 Z" fill="url(#rightTailGradient)" />
-                  {/* Glossy shine overlay */}
-                  <path d="M 0,0 L 50,0 L 44,15 L 50,30 L 0,30 Z" fill="url(#shineGradientRight)" opacity="0.4" />
+                  {/* Main tail surface */}
+                  <path d="M 0,0 L 45,0 L 50,24 L 45,48 L 0,48 Z" fill="url(#rightRibbonGrad)" />
+                  {/* V-notch fold - darker for depth */}
+                  <path d="M 45,0 L 60,12 L 50,24 L 45,48 L 60,36 L 50,24 Z" fill="url(#rightFoldGrad)" />
+                  {/* Glossy overlay on main surface */}
+                  <path d="M 0,0 L 45,0 L 50,24 L 45,48 L 0,48 Z" fill="url(#rightShineGrad)" />
+                  {/* Subtle highlight on fold edge */}
+                  <path d="M 45,0 L 50,24 L 45,48" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
                 </svg>
               </div>
 
