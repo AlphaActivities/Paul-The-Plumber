@@ -146,9 +146,36 @@ export default function CallPopup() {
             {/* CTA Button */}
             <a
               href="tel:4025960200"
-              className="block w-full py-4 bg-gradient-to-r from-[#E42313] to-red-600 text-white rounded-full text-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="luxury-cta-button block w-full py-4 text-white rounded-full text-xl font-bold transition-all duration-300 relative overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #E42313 0%, #DC2626 25%, #B91C1C 50%, #DC2626 75%, #E42313 100%)',
+                boxShadow: '0 8px 32px rgba(228, 35, 19, 0.4), 0 4px 16px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2)',
+                border: '2px solid rgba(251, 191, 36, 0.3)'
+              }}
             >
-              Call Now
+              {/* Glossy shine overlay on top */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/40 via-white/10 to-transparent pointer-events-none" style={{ height: '50%' }} />
+
+              {/* Bottom shadow for depth */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" style={{ top: '50%' }} />
+
+              {/* Animated shimmer effect */}
+              <div
+                className="absolute inset-0 shimmer-effect pointer-events-none"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%)',
+                  transform: 'translateX(-100%)',
+                  borderRadius: '9999px'
+                }}
+              />
+
+              {/* Gold glow on hover */}
+              <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ boxShadow: '0 0 30px rgba(251, 191, 36, 0.6), inset 0 0 20px rgba(251, 191, 36, 0.2)' }} />
+
+              {/* Text with enhanced shadow */}
+              <span className="relative z-10" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                Call Now
+              </span>
             </a>
 
             {/* Trust badges */}
@@ -188,12 +215,34 @@ export default function CallPopup() {
           }
         }
 
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(200%);
+          }
+        }
+
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
         }
 
         .animate-scaleIn {
           animation: scaleIn 0.4s ease-out;
+        }
+
+        .shimmer-effect {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .luxury-cta-button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 48px rgba(228, 35, 19, 0.5), 0 6px 24px rgba(220, 38, 38, 0.4), 0 0 40px rgba(251, 191, 36, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .luxury-cta-button:active {
+          transform: scale(0.98);
         }
       `}</style>
     </>
