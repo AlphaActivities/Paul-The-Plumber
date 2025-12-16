@@ -100,10 +100,9 @@ export default function CallPopup() {
 
                     {/* Text */}
                     <p
-                      className="relative text-white text-sm font-bold uppercase tracking-[0.2em] select-none"
+                      className="relative text-white text-xs font-bold uppercase tracking-wider select-none whitespace-nowrap"
                       style={{
-                        textShadow: '0 2px 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.3)',
-                        letterSpacing: '0.2em'
+                        textShadow: '0 2px 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.3)'
                       }}
                     >
                       Let's Talk Now
